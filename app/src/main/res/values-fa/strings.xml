@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_txt">ورود</string>
+    <string name="welcome_text">به برنامه من خوش آمدید.</string>
+    <string name="username_txt">نام کاربری</string>
+    <string name="password_txt">رمز عبور</string>
+</resources>

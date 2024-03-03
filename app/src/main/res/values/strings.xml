@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name" translatable="false">MyKotlinTestApp</string>
+    <string name="login_txt">Login</string>
+    <string name="welcome_text">Welcome to my app</string>
+    <string name="username_txt">Username</string>
+    <string name="password_txt">Password</string>
+</resources>
