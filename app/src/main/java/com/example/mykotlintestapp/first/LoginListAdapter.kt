@@ -2,9 +2,14 @@ package com.example.mykotlintestapp.first
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.Button
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mykotlintestapp.R
 import com.example.mykotlintestapp.databinding.LoginHistItemBinding
@@ -20,6 +25,10 @@ class LoginListAdapter(dataSet: Array<LoginInfo>) :
         val name: TextView
         val role: TextView
         val time: TextView
+        val listItem: ConstraintLayout = view.listItem
+        val listSubItem: ConstraintLayout = view.listSubItem
+        val delete: Button = view.delete
+
 
 
         init {
@@ -64,8 +73,20 @@ class LoginListAdapter(dataSet: Array<LoginInfo>) :
         holder.time.text = _dataset[position].loginTime.toString()
 
 
-        holder.itemView.setOnClickListener {
+        holder.delete.setOnClickListener {
             clickListener?.onClick(_dataset[position])
+        }
+
+        holder.itemView.setOnClickListener {
+            if (holder.listSubItem.isVisible) {
+                val fadeOut = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.fade_out)
+                holder.listSubItem.startAnimation(fadeOut)
+                holder.listSubItem.visibility = View.GONE
+            } else {
+                val fadeIn = AnimationUtils.loadAnimation(holder.itemView.context, R.anim.fade_in)
+                holder.listSubItem.startAnimation(fadeIn)
+                holder.listSubItem.visibility = View.VISIBLE
+            }
         }
 
         holder.itemView.setOnLongClickListener {
@@ -74,9 +95,9 @@ class LoginListAdapter(dataSet: Array<LoginInfo>) :
             return@setOnLongClickListener true
         }
         if (position % 2 == 0) {
-            holder.itemView.setBackground(
+            holder.listItem.setBackground(
                 ContextCompat.getDrawable(
-                    holder.itemView.context,
+                    holder.listItem.context,
                     R.drawable.border_even
                 )
             );
@@ -85,9 +106,9 @@ class LoginListAdapter(dataSet: Array<LoginInfo>) :
 //                R.color.primaryLightColor
 //            ));
         } else {
-            holder.itemView.setBackground(
+            holder.listItem.setBackground(
                 ContextCompat.getDrawable(
-                    holder.itemView.context,
+                    holder.listItem.context,
                     R.drawable.border_odd
                 )
             );

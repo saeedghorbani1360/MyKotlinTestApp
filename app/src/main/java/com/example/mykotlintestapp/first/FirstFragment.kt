@@ -59,9 +59,9 @@ class FirstFragment : Fragment() {
             override fun onClick(item: LoginInfo) {
                 val dialog = CustomDialog(context,this)
                 itemId = item.id
-                dialog.setTitle("Delete")
+                dialog.setTitle(getString(R.string.delete))
                 dialog.setBody("Delete row?")
-                dialog.setPositive("Delete")
+                dialog.setPositive(getString(R.string.delete))
                 dialog.setNegative("Cancel")
                 dialog.show()
 

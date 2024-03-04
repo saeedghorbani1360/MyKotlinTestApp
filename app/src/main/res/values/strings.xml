@@ -4,4 +4,5 @@
     <string name="welcome_text">Welcome to my app</string>
     <string name="username_txt">Username</string>
     <string name="password_txt">Password</string>
+    <string name="delete">Delete</string>
 </resources>
