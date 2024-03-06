@@ -7,6 +7,8 @@ data class LoginInfo(
 
     val loginTime: Long ,
 
-    var role: String
+    var role: String,
+
+    var isSwiped: Boolean = false
 
 )

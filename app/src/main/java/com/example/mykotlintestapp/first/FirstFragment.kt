@@ -92,8 +92,13 @@ class FirstFragment : Fragment() {
 
         val itemDecoration = DividerItemDecoration(requireContext(),DividerItemDecoration.VERTICAL)
         recyclerView.addItemDecoration(itemDecoration)
+        val onDeleteClickListener: (position: Int) -> Unit = { position ->
+            // Handle delete action here
+            customAdapter.onItemDismiss(position)
+        }
 
-        val itemTouchHelper = ItemTouchHelper(SimpleCallback(customAdapter))
+
+        val itemTouchHelper = ItemTouchHelper(SimpleCallback(recyclerView,customAdapter,onDeleteClickListener))
         itemTouchHelper.attachToRecyclerView(recyclerView)
 
         val manager = LinearLayoutManager(requireContext())

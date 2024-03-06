@@ -68,6 +68,7 @@ class LoginListAdapter(dataSet: Array<LoginInfo>) :
     override fun getItemCount() = _dataset.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = _dataset[position]
         holder.name.text = _dataset[position].name
         holder.role.text = _dataset[position].role
         holder.time.text = _dataset[position].loginTime.toString()
@@ -133,6 +134,9 @@ class LoginListAdapter(dataSet: Array<LoginInfo>) :
         fun onClick(item: LoginInfo)
         fun onLongClick(item: LoginInfo)
 
+    }
+    fun getItem(itemId : Int): LoginInfo {
+        return _dataset[itemId]
     }
 
 
