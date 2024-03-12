@@ -4,4 +4,6 @@
     <string name="welcome_text">به برنامه من خوش آمدید.</string>
     <string name="username_txt">نام کاربری</string>
     <string name="password_txt">رمز عبور</string>
+    <string name="delete">حذف</string>
+    <string name="message_subscribe">اتصال به گروه %1$s، %2$s بود</string>
 </resources>
